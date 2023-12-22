@@ -63,7 +63,7 @@ namespace TwitchChatVotingProxy.VotingReceiver
 
             m_Logger.Information($"Trying to connect to twitch channel \"{m_ChannelName}\" with user \"{m_UserName}\"");
 
-            m_Client = new TwitchClient(new WebSocketClient());
+            m_Client = new TwitchClient(new TcpClient());
             m_Client.Initialize(new ConnectionCredentials(m_UserName, m_OAuth), m_ChannelName);
 
             m_Client.OnConnected += OnConnected;
