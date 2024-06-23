@@ -73,10 +73,10 @@ namespace ConfigApp.Tabs.Voting
 
         public override void OnLoadValues()
         {
-            if (m_EnableDiscordVoting is not null)
+            if (m_EnableWebhookVoting is not null)
             {
-                m_EnableDiscordVoting.IsChecked = OptionsManager.TwitchFile.ReadValueBool("EnableVotingWebhook", false);
-                SetElementsEnabled(m_EnableDiscordVoting.IsChecked.GetValueOrDefault());
+                m_EnableWebhookVoting.IsChecked = OptionsManager.TwitchFile.ReadValueBool("EnableVotingWebhook", false);
+                SetElementsEnabled(m_EnableWebhookVoting.IsChecked.GetValueOrDefault());
             }
 
             if (m_Address is not null)
@@ -91,7 +91,7 @@ namespace ConfigApp.Tabs.Voting
 
         public override void OnSaveValues()
         {
-            OptionsManager.TwitchFile.WriteValue("EnableVotingWebhook", m_EnableDiscordVoting?.IsChecked);
+            OptionsManager.TwitchFile.WriteValue("EnableVotingWebhook", m_EnableWebhookVoting?.IsChecked);
 
             OptionsManager.TwitchFile.WriteValue("WebhookAddress", m_Address?.Text);
             OptionsManager.TwitchFile.WriteValue("WebhookPort", m_Port?.Text);
