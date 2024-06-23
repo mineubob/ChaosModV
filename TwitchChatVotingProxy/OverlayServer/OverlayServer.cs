@@ -10,7 +10,7 @@ namespace TwitchChatVotingProxy.OverlayServer
     {
         private readonly OverlayServerConfig config;
         private readonly List<IWebSocketConnection> connections = new();
-        private readonly ILogger logger = Log.Logger.ForContext<OverlayServer>();
+        private readonly Serilog.ILogger logger = Log.Logger.ForContext<OverlayServer>();
 
         public OverlayServer(OverlayServerConfig config)
         {

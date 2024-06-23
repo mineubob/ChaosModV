@@ -8,7 +8,7 @@ namespace TwitchChatVotingProxy
 {
     class TwitchChatVotingProxy
     {
-        private static readonly ILogger m_Logger = Log.Logger.ForContext<TwitchChatVotingProxy>();
+        private static readonly Serilog.ILogger m_Logger = Log.Logger.ForContext<TwitchChatVotingProxy>();
 
         private static async Task Main(string[] args)
         {
@@ -63,6 +63,10 @@ namespace TwitchChatVotingProxy
             if (config.ReadValueBool("EnableVotingDiscord", false))
             {
                 votingReceivers.Add(("Discord", new DiscordVotingReceiver(config, chaosPipe)));
+            }
+            if (config.ReadValueBool("EnableVotingWebhook", false))
+            {
+                votingReceivers.Add(("Webhook", new WebhookVotingReciver(config, chaosPipe)));
             }
 
             foreach (var votingReceiver in votingReceivers)

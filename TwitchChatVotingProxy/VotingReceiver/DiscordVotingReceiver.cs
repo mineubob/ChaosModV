@@ -20,7 +20,7 @@ namespace TwitchChatVotingProxy.VotingReceiver
 
         private DiscordSocketClient? m_Client = null;
         private readonly ChaosPipeClient m_ChaosPipe;
-        private readonly ILogger m_Logger = Log.Logger.ForContext<DiscordVotingReceiver>();
+        private readonly Serilog.ILogger m_Logger = Log.Logger.ForContext<DiscordVotingReceiver>();
 
         private bool m_IsReady = false;
 

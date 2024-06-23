@@ -20,7 +20,7 @@ namespace TwitchChatVotingProxy.ChaosPipe
         public event EventHandler<OnNewVoteArgs>? OnNewVote = null;
         public event EventHandler? OnNoVotingRound = null;
 
-        private readonly ILogger m_Logger = Log.Logger.ForContext<ChaosPipeClient>();
+        private readonly Serilog.ILogger m_Logger = Log.Logger.ForContext<ChaosPipeClient>();
         private readonly NamedPipeClientStream m_Pipe = new(
             ".",
             "ChaosModVVotingPipe",

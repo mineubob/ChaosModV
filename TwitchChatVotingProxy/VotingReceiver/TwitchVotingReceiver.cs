@@ -24,7 +24,7 @@ namespace TwitchChatVotingProxy.VotingReceiver
 
         private TwitchClient? m_Client = null;
         private readonly ChaosPipeClient m_ChaosPipe;
-        private readonly ILogger m_Logger = Log.Logger.ForContext<TwitchVotingReceiver>();
+        private readonly Serilog.ILogger m_Logger = Log.Logger.ForContext<TwitchVotingReceiver>();
 
         private bool m_IsReady = false;
 
