@@ -18,7 +18,7 @@ namespace TwitchChatVotingProxy.OverlayServer
 
             try
             {
-                var WSS = new WebSocketServer($"ws://0.0.0.0:{config.Port}");
+                var WSS = new WebSocketServer($"ws://127.0.0.1:{config.Port}");
                 // Set the websocket listeners
                 WSS.Start(connection =>
                 {
@@ -28,7 +28,7 @@ namespace TwitchChatVotingProxy.OverlayServer
             }
             catch (Exception e)
             {
-                logger.Fatal(e, "Failed so start websocket server");
+                logger.Fatal(e, "Failed to start websocket server");
             }
         }
 
